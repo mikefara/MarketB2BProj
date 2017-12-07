@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MarketB2BProj.iml" filepath="$PROJECT_DIR$/MarketB2BProj.iml" />
+      <module fileurl="file://C:\work\Android\demo\MarketB2BProj\MarketB2BProj.iml" filepath="C:\work\Android\demo\MarketB2BProj\MarketB2BProj.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\work\Android\demo\MarketB2BProj\app\app.iml" filepath="C:\work\Android\demo\MarketB2BProj\app\app.iml" />
     </modules>
   </component>
 </project>

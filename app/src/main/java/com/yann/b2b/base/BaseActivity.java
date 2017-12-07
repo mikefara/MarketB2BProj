@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ import com.yann.b2b.application.MyApp;
  * Created by yayun.xia on 2017/12/4.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
 
     /**
      * 是否沉浸状态栏

@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_circle_white">
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="18sp"
-            android:text="2s"/>
-    </FrameLayout>
+    android:layout_height="match_parent"
+    android:background="@drawable/guide1">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="在路上..."
-        android:textColor="#bb000000"
-        android:textSize="20sp" />
+        android:textColor="@color/color_black"
+        android:textSize="38sp"
+        android:typeface="monospace"/>
 
 </FrameLayout>
