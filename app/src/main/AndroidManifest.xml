@@ -17,7 +17,7 @@
         </activity>
 
         <activity
-            android:name=".welcome.SplashActivity"
+            android:name=".welcome.activity.SplashActivity"
             android:theme="@style/ThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".welcome.activity.KaKaLauncherActivity"
+            android:theme="@style/ThemeSplash">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".welcome.activity.GuideActivity" />
     </application>
 
 </manifest>

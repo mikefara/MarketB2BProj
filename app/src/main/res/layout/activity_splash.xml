@@ -18,4 +18,12 @@
             android:text="2s"/>
     </FrameLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="在路上..."
+        android:textColor="#bb000000"
+        android:textSize="20sp" />
+
 </FrameLayout>
