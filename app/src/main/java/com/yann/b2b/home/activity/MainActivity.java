@@ -1,54 +1,95 @@
 package com.yann.b2b.home.activity;
 
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 import com.yann.b2b.R;
+import com.yann.b2b.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class MainActivity extends BaseActivity {
+
+
+    // UI
+    private AHBottomNavigationViewPager viewPager;
+    private AHBottomNavigation bottomNavigation;
+    private AHBottomNavigationAdapter navigationAdapter;
+    private ArrayList<AHBottomNavigationItem> bottomNavigationItems = new ArrayList<>();
+
+    private boolean useMenuResource = true;
+    private int[] tabColors;
+
+    /**
+     * [初始化布局]
+     *
+     * @return 布局资源 ID
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
+    /**
+     * [初始化Bundle参数]
+     *
+     * @param bundle
+     */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    protected void initParms(Bundle bundle) {
+
     }
 
+    /**
+     * [初始化控件参数： 在该方法中，可以对已绑定的控件数据初始化]
+     *
+     * @param rootView
+     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    protected void initView(View rootView) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         }
 
-        return super.onOptionsItemSelected(item);
+        bottomNavigation = $(R.id.bottom_navigation);
+        viewPager = $(R.id.view_pager);
+
+        if (useMenuResource) {
+            tabColors = getApplicationContext().getResources().getIntArray(R.array.tab_colors);
+            navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.bottom_navigation_menu_4);
+            navigationAdapter.setupWithBottomNavigation(bottomNavigation, tabColors);
+        } else {
+            AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.ic_apps_black_24dp, R.color.color_tab_1);
+            AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.ic_maps_local_bar, R.color.color_tab_2);
+            AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.drawable.ic_maps_local_restaurant, R.color.color_tab_3);
+            AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.tab_4, R.drawable.ic_account_path, R.color.color_tab_4);
+
+            bottomNavigationItems.add(item1);
+            bottomNavigationItems.add(item2);
+            bottomNavigationItems.add(item3);
+            bottomNavigationItems.add(item4);
+
+            bottomNavigation.addItems(bottomNavigationItems);
+        }
+
+        bottomNavigation.setTranslucentNavigationEnabled(true);
+
+    }
+
+
+    /**
+     * View点击
+     *
+     * @param v
+     */
+    @Override
+    public void widgetClick(View v) {
+
     }
 }

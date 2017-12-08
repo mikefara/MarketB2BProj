@@ -5,21 +5,20 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.yann.b2b.R;
+import com.gyf.barlibrary.ImmersionBar;
 import com.yann.b2b.application.MyApp;
 
 /**
  * Created by yayun.xia on 2017/12/4.
  */
 
-public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**
      * 是否沉浸状态栏
@@ -41,10 +40,15 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     private String APP_NAME;
     protected final String TAG = this.getClass().getSimpleName();
 
+    /**
+     * 沉浸式状态栏
+     */
+    private ImmersionBar mImmersionBar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.base_container);
+//        setContentView(R.layout.base_container);
 
         isDebug = MyApp.isDebug;
         APP_NAME = MyApp.APP_NAME;
@@ -54,9 +58,13 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             initParms(bundle);
             mContextView = LayoutInflater.from(this).inflate(getLayoutId(), null);
 
-            if (isSetStatusBar) {
-                steepStatusBar();
-            }
+//            if (isSetStatusBar) {
+//                steepStatusBar();
+//            }
+
+            mImmersionBar = ImmersionBar.with(this);
+            mImmersionBar.init();   //所有子类都将继承这些相同的属性
+
             setContentView(mContextView);
             if (!isAllowScreenRoate) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -175,6 +183,8 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     protected void onDestroy() {
         super.onDestroy();
         $Log(TAG + "-->onDestroy()");
+        if (mImmersionBar != null)
+            mImmersionBar.destroy();  //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
     }
 
 
