@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\xyy\\androidProj\\MarketB2BProj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
+        "source": "C:\\Users\\小花\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\c70117ac33c3ab74ce6f949162508d0f\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "C:\\xyy\\androidProj\\MarketB2BProj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",
+        "source": "C:\\Users\\小花\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\c70117ac33c3ab74ce6f949162508d0f\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "C:\\xyy\\androidProj\\MarketB2BProj\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml",
+        "source": "C:\\xyy\\androidProj\\MarketB2BProj\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    }
+]
